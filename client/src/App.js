@@ -1,4 +1,9 @@
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  Navigate,
+  Outlet,
+  RouterProvider,
+} from 'react-router-dom';
 import LeftBar from './components/leftBar/LeftBar';
 import Navbar from './components/navbar/Navbar';
 import RightBar from './components/rightBar/RightBar';
@@ -8,6 +13,8 @@ import Profile from './pages/profile/Profile';
 import Register from './pages/register/Register';
 
 function App() {
+  const currentUser = true;
+
   const Layout = () => {
     return (
       <div>
@@ -21,10 +28,22 @@ function App() {
     );
   };
 
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to="/login" />;
+    }
+
+    return children;
+  };
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Layout />,
+      element: (
+        <ProtectedRoute>
+          <Layout />
+        </ProtectedRoute>
+      ),
       children: [
         {
           path: '/',
