@@ -40,7 +40,11 @@ const Post = ({ post }) => {
         </div>
         <div className="info">
           <div className="item">
-            {liked ? <FavoriteOutlined /> : <FavoriteBorderOutlined />}
+            {liked ? (
+              <FavoriteOutlined style={{ color: '#f0544f' }} />
+            ) : (
+              <FavoriteBorderOutlined />
+            )}
             12 Likes
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
