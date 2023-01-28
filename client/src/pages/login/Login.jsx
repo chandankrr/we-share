@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <div className="login">
       <h1>WeShare</h1>
-      <div class="center">
+      <div className="center">
         <h1>Login</h1>
         <form>
           <div>
@@ -26,13 +26,13 @@ const Login = () => {
             <span></span>
             <label>Password</label>
           </div>
-          <div class="password" style={{ border: 'none' }}>
+          <div className="password" style={{ border: 'none' }}>
             Forgot Password?
           </div>
           <button onClick={handleLogin}>Login</button>
         </form>
 
-        <div class="signup-link" style={{ border: 'none' }}>
+        <div className="signup-link" style={{ border: 'none' }}>
           Don't have account?{' '}
           <Link to="/register">
             <button>Register</button>

@@ -5,7 +5,7 @@ const Register = () => {
   return (
     <div className="register">
       <h1>WeShare</h1>
-      <div class="center">
+      <div className="center">
         <h1>Register</h1>
         <form>
           <div>
@@ -31,7 +31,7 @@ const Register = () => {
           <button>Register</button>
         </form>
 
-        <div class="signin-link" style={{ border: 'none' }}>
+        <div className="signin-link" style={{ border: 'none' }}>
           Already have account?{' '}
           <Link to="/login">
             <button>Login</button>
