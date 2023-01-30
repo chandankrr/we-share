@@ -36,40 +36,25 @@ function App() {
     );
   };
 
-  const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to="/login" />;
-    }
-
-    return children;
-  };
-
   const router = createBrowserRouter([
     {
       path: '/',
-      element: (
-        <ProtectedRoute>
-          <Layout />
-        </ProtectedRoute>
-      ),
+      element: currentUser ? <Layout /> : <Register />,
       children: [
+        { path: '/', element: <Home /> },
         {
-          path: '/',
-          element: <Home />,
-        },
-        {
-          path: '/profile/:id',
+          path: '/profile/:username',
           element: <Profile />,
         },
       ],
     },
     {
       path: '/login',
-      element: <Login />,
+      element: currentUser ? <Navigate replace to={'/'} /> : <Login />,
     },
     {
       path: '/register',
-      element: <Register />,
+      element: currentUser ? <Navigate replace to={'/'} /> : <Register />,
     },
   ]);
 
