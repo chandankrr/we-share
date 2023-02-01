@@ -7,6 +7,7 @@ import commentRoutes from './routes/comments.js';
 import friendRoutes from './routes/friends.js';
 import likeRoutes from './routes/likes.js';
 import postRoutes from './routes/posts.js';
+import randomUserRoutes from './routes/randomUsers.js';
 import relationshipRoutes from './routes/relationships.js';
 import storyRoutes from './routes/stories.js';
 import userRoutes from './routes/users.js';
@@ -51,6 +52,7 @@ app.use('/api/likes', likeRoutes);
 app.use('/api/relationships', relationshipRoutes);
 app.use('/api/friends', friendRoutes);
 app.use('/api/stories', storyRoutes);
+app.use('/api/randomUser', randomUserRoutes);
 
 app.listen(8800, () => {
   console.log('API working');
