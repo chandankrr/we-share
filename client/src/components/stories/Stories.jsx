@@ -1,33 +1,18 @@
+import { useQuery } from '@tanstack/react-query';
 import { useContext } from 'react';
+import { makeRequest } from '../../axios';
 import { AuthContext } from '../../context/authContext';
 import './stories.scss';
 
 const Stories = () => {
   const { currentUser } = useContext(AuthContext);
 
-  //TEMPORARY
-  const stories = [
-    {
-      id: 1,
-      name: 'John Doe',
-      img: 'https://images.pexels.com/photos/13916254/pexels-photo-13916254.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load',
-    },
-    {
-      id: 2,
-      name: 'John Doe',
-      img: 'https://images.pexels.com/photos/13916254/pexels-photo-13916254.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load',
-    },
-    {
-      id: 3,
-      name: 'John Doe',
-      img: 'https://images.pexels.com/photos/13916254/pexels-photo-13916254.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load',
-    },
-    {
-      id: 4,
-      name: 'John Doe',
-      img: 'https://images.pexels.com/photos/13916254/pexels-photo-13916254.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load',
-    },
-  ];
+  const { isLoading, error, data } = useQuery(['stories'], () =>
+    makeRequest.get('/stories').then((res) => {
+      return res.data;
+    })
+  );
+
   return (
     <div className="stories">
       <div className="story">
@@ -35,9 +20,9 @@ const Stories = () => {
         <span>{currentUser.name}</span>
         <button>+</button>
       </div>
-      {stories?.map((story) => (
+      {data?.map((story) => (
         <div className="story" key={story.id}>
-          <img src={story.img} alt="" />
+          <img src={story.story} alt="" />
           <span>{story.name}</span>
         </div>
       ))}
