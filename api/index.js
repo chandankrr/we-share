@@ -3,10 +3,10 @@ import cors from 'cors';
 import express from 'express';
 import multer from 'multer';
 import authRoutes from './routes/auth.js';
-import userRoutes from './routes/comments.js';
+import commentRoutes from './routes/comments.js';
 import likeRoutes from './routes/likes.js';
 import postRoutes from './routes/posts.js';
-import commentRoutes from './routes/users.js';
+import userRoutes from './routes/users.js';
 
 const app = express();
 
