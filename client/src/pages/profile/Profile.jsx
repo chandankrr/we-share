@@ -1,14 +1,4 @@
-import {
-  EmailOutlined,
-  FacebookTwoTone,
-  Instagram,
-  Language,
-  LinkedIn,
-  MoreVert,
-  Pinterest,
-  Place,
-  Twitter,
-} from '@mui/icons-material';
+import { Language, Place } from '@mui/icons-material';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';

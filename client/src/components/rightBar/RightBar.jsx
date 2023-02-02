@@ -1,4 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
+import Neelu from '../../assets/neelu.jpg';
+import Ravi from '../../assets/ravi.jpg';
+import Shweta from '../../assets/shweta.jpg';
 import { makeRequest } from '../../axios';
 import './rightBar.scss';
 
@@ -44,39 +47,30 @@ const RightBar = () => {
           <span>Latest Activities</span>
           <div className="user">
             <div className="userInfo">
-              <img
-                src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
+              <img src={Neelu} alt="" />
               <p>
-                <span>Jane Doe</span> cover picture
+                <span>Neelu</span> changed her cover picture
               </p>
             </div>
-            <span>1 min ago</span>
+            <span>4 hours ago</span>
           </div>
           <div className="user">
             <div className="userInfo">
-              <img
-                src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
+              <img src={Shweta} alt="" />
               <p>
-                <span>Jane Doe</span> cover picture
+                <span>Shweta</span> added new post
               </p>
             </div>
-            <span>1 min ago</span>
+            <span>2 days ago</span>
           </div>
           <div className="user">
             <div className="userInfo">
-              <img
-                src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
+              <img src={Ravi} alt="" />
               <p>
-                <span>Jane Doe</span> cover picture
+                <span>Ravi</span> updated his profile picture
               </p>
             </div>
-            <span>1 min ago</span>
+            <span>6 days ago</span>
           </div>
         </div>
         <div className="item">
