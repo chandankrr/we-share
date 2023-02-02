@@ -7,6 +7,7 @@ import './stories.scss';
 const Stories = () => {
   const { currentUser } = useContext(AuthContext);
 
+  // eslint-disable-next-line no-unused-vars
   const { isLoading, error, data } = useQuery(['stories'], () =>
     makeRequest.get('/stories').then((res) => {
       return res.data;

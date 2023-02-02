@@ -8,7 +8,7 @@ export const getRelationships = (req, res) => {
     if (err) return res.status(500).json(err);
     return res
       .status(200)
-      .json(data.map((relationship) => relationship.followerUserId));
+      .json(data?.map((relationship) => relationship.followerUserId));
   });
 };
 

@@ -1,4 +1,4 @@
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { CloudUpload } from '@mui/icons-material';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { makeRequest } from '../../axios';
@@ -75,7 +75,7 @@ const Update = ({ setOpenUpdate, user }) => {
                   }
                   alt=""
                 />
-                <CloudUploadIcon className="icon" />
+                <CloudUpload className="icon" />
               </div>
             </label>
             <input
@@ -95,7 +95,7 @@ const Update = ({ setOpenUpdate, user }) => {
                   }
                   alt=""
                 />
-                <CloudUploadIcon className="icon" />
+                <CloudUpload className="icon" />
               </div>
             </label>
             <input

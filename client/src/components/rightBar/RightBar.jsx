@@ -3,6 +3,7 @@ import { makeRequest } from '../../axios';
 import './rightBar.scss';
 
 const RightBar = () => {
+  // eslint-disable-next-line no-unused-vars
   const { isLoading, error, data } = useQuery(['randomUser'], () =>
     makeRequest.get('/randomUser').then((res) => {
       return res.data;
@@ -10,7 +11,9 @@ const RightBar = () => {
   );
 
   const {
+    // eslint-disable-next-line no-unused-vars
     isLoading: _isLoading,
+    // eslint-disable-next-line no-unused-vars
     error: _error,
     data: _data,
   } = useQuery(['friends'], () =>

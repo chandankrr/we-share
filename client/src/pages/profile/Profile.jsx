@@ -1,12 +1,14 @@
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import FacebookTwoToneIcon from '@mui/icons-material/FacebookTwoTone';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LanguageIcon from '@mui/icons-material/Language';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import PinterestIcon from '@mui/icons-material/Pinterest';
-import PlaceIcon from '@mui/icons-material/Place';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import {
+  EmailOutlined,
+  FacebookTwoTone,
+  Instagram,
+  Language,
+  LinkedIn,
+  MoreVert,
+  Pinterest,
+  Place,
+  Twitter,
+} from '@mui/icons-material';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -58,7 +60,9 @@ const Profile = () => {
 
   return (
     <div className="profile">
-      {isLoading ? (
+      {error ? (
+        'Something went wrong!'
+      ) : isLoading ? (
         'loading'
       ) : (
         <>
@@ -74,30 +78,30 @@ const Profile = () => {
             <div className="uInfo">
               <div className="left">
                 <a href="http://facebook.com">
-                  <FacebookTwoToneIcon fontSize="large" />
+                  <FacebookTwoTone fontSize="large" />
                 </a>
                 <a href="http://facebook.com">
-                  <InstagramIcon fontSize="large" />
+                  <Instagram fontSize="large" />
                 </a>
                 <a href="http://facebook.com">
-                  <TwitterIcon fontSize="large" />
+                  <Twitter fontSize="large" />
                 </a>
                 <a href="http://facebook.com">
-                  <LinkedInIcon fontSize="large" />
+                  <LinkedIn fontSize="large" />
                 </a>
                 <a href="http://facebook.com">
-                  <PinterestIcon fontSize="large" />
+                  <Pinterest fontSize="large" />
                 </a>
               </div>
               <div className="center">
                 <span>{data.name}</span>
                 <div className="info">
                   <div className="item">
-                    <PlaceIcon />
+                    <Place />
                     <span>{data.city}</span>
                   </div>
                   <div className="item">
-                    <LanguageIcon />
+                    <Language />
                     <span>{data.website}</span>
                   </div>
                 </div>
@@ -114,8 +118,8 @@ const Profile = () => {
                 )}
               </div>
               <div className="right">
-                <EmailOutlinedIcon />
-                <MoreVertIcon />
+                <EmailOutlined />
+                <MoreVert />
               </div>
             </div>
             <Posts userId={userId} />
