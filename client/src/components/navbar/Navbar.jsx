@@ -9,7 +9,7 @@ import {
   WbSunnyOutlined,
 } from '@mui/icons-material';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/authContext';
 import { DarkModeContext } from '../../context/darkModeContext';
 import './navbar.scss';
@@ -17,6 +17,14 @@ import './navbar.scss';
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
+
+  const navigate = useNavigate;
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload();
+    navigate('/register');
+  };
 
   return (
     <div className="navbar">
@@ -45,6 +53,18 @@ const Navbar = () => {
             <img src={'/upload/' + currentUser.profilePic} alt="" />
           </Link>
           <span>{currentUser.name}</span>
+          <span
+            onClick={logout}
+            style={{
+              backgroundColor: '#f0544f',
+              padding: '5px',
+              color: 'white',
+              cursor: 'pointer',
+              marginLeft: '20px',
+            }}
+          >
+            Logout
+          </span>
         </div>
       </div>
     </div>
