@@ -1,10 +1,7 @@
 import {
   DarkModeOutlined,
-  EmailOutlined,
   GridViewOutlined,
   HomeOutlined,
-  NotificationsOutlined,
-  PersonOutline,
   SearchOutlined,
   WbSunnyOutlined,
 } from '@mui/icons-material';
@@ -38,21 +35,20 @@ const Navbar = () => {
         ) : (
           <DarkModeOutlined onClick={toggle} />
         )}
-        <GridViewOutlined />
+        <GridViewOutlined className="grid" />
         <div className="search">
           <SearchOutlined />
           <input type="text" placeholder="Search..." />
         </div>
       </div>
       <div className="right">
-        <PersonOutline />
-        <EmailOutlined />
-        <NotificationsOutlined />
         <div className="user">
-          <Link to={`/profile/${currentUser.id}`}>
-            <img src={'/upload/' + currentUser.profilePic} alt="" />
-          </Link>
-          <span>{currentUser.name}</span>
+          <div className="username">
+            <Link to={`/profile/${currentUser.id}`}>
+              <img src={'/upload/' + currentUser.profilePic} alt="" />
+            </Link>
+            <span className="name">{currentUser.name}</span>
+          </div>
           <span
             onClick={logout}
             style={{
