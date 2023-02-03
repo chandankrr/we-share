@@ -49,7 +49,7 @@ const RightBar = () => {
         </div>
         <div className="item">
           <span>Latest Activities</span>
-          {currentUser.username === 'chandankrr' && (
+          {currentUser.username === 'chandankrr' ? (
             <div className="user">
               <div className="userInfo">
                 <img src={Neelu} alt="" />
@@ -58,6 +58,16 @@ const RightBar = () => {
                 </p>
               </div>
               <span>4 hours ago</span>
+            </div>
+          ) : (
+            <div className="user">
+              <div className="userInfo">
+                <img src={'/upload/' + currentUser.profilePic} alt="" />
+                <p>
+                  <span>{currentUser.name}</span> created his/her account
+                </p>
+              </div>
+              <span>a min ago</span>
             </div>
           )}
           {currentUser.username === 'chandankrr' && (

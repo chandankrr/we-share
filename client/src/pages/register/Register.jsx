@@ -18,8 +18,6 @@ const Register = () => {
   };
 
   const handleClick = async (e) => {
-    e.preventDefault();
-
     try {
       await axios.post('http://localhost:8800/api/auth/register', inputs);
     } catch (err) {
