@@ -9,7 +9,7 @@ export const getStories = (req, res) => {
     if (err) return res.status(403).json('Token is not valid');
 
     const q = `SELECT relationships.followedUserId, users.id, users.name, users.story
-    FROM relationships JOIN users ON relationships.followedUserId = users.id WHERE relationships.followerUserId = (?) ORDER BY RAND() LIMIT 4`;
+    FROM relationships JOIN users ON relationships.followedUserId = users.id WHERE relationships.followerUserId = (?) LIMIT 4`;
 
     db.query(q, [userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
