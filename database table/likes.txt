@@ -1,0 +1,18 @@
+CREATE TABLE `social-media`.`likes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `userId` INT NOT NULL,
+  `postId` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `likeUserId_idx` (`userId` ASC) VISIBLE,
+  INDEX `likePostId_idx` (`postId` ASC) VISIBLE,
+  CONSTRAINT `likeUserId`
+    FOREIGN KEY (`userId`)
+    REFERENCES `social-media`.`users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `likePostId`
+    FOREIGN KEY (`postId`)
+    REFERENCES `social-media`.`posts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

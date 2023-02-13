@@ -1,0 +1,20 @@
+CREATE TABLE `social-media`.`comments` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `desc` VARCHAR(500) NOT NULL,
+  `createdAt` DATETIME NULL,
+  `userId` INT NOT NULL,
+  `postId` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `postId_idx` (`postId` ASC) VISIBLE,
+  INDEX `commentUserId_idx` (`userId` ASC) VISIBLE,
+  CONSTRAINT `commentUserId`
+    FOREIGN KEY (`userId`)
+    REFERENCES `social-media`.`users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `postId`
+    FOREIGN KEY (`postId`)
+    REFERENCES `social-media`.`posts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

@@ -10,7 +10,7 @@ export const getRandomUsers = (req, res) => {
 
     const q = `SELECT u.* FROM users u
     LEFT JOIN relationships r ON r.followedUserId = u.id 
-    WHERE u.id != (?) AND r.followedUserId IS NULL LIMIT 2`;
+    WHERE u.id != (?) AND r.followedUserId IS NULL ORDER BY RAND() LIMIT 2`;
 
     db.query(q, [userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);

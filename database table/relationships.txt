@@ -1,0 +1,18 @@
+CREATE TABLE `social-media`.`relationships` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `followerUserId` INT NOT NULL,
+  `followedUserId` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `followerUser_idx` (`followerUserId` ASC) VISIBLE,
+  INDEX `followedUser_idx` (`followedUserId` ASC) VISIBLE,
+  CONSTRAINT `followerUser`
+    FOREIGN KEY (`followerUserId`)
+    REFERENCES `social-media`.`users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `followedUser`
+    FOREIGN KEY (`followedUserId`)
+    REFERENCES `social-media`.`users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

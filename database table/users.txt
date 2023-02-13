@@ -1,0 +1,13 @@
+CREATE TABLE `social-media`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(500) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `coverPic` VARCHAR(500) NULL,
+  `profilePic` VARCHAR(500) NULL,
+  `story` VARCHAR(500) NULL,
+  `city` VARCHAR(45) NULL,
+  `website` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);

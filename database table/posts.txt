@@ -1,0 +1,14 @@
+CREATE TABLE `social-media`.`posts` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `desc` VARCHAR(500) NULL,
+  `img` VARCHAR(500) NULL,
+  `userId` INT NOT NULL,
+  `createdAt` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `userId_idx` (`userId` ASC) VISIBLE,
+  CONSTRAINT `userId`
+    FOREIGN KEY (`userId`)
+    REFERENCES `social-media`.`users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
